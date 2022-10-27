@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      img {
+        width:40px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+      $(document).ready(function(){
+
+        $.getJSON('tableaux.json', function(data){
+
+          $.each(data, function(i, item){
+
+            var mesimages = '<img ';
+            mesimages += 'src="' + item.image + '">';
+            $('#viz').append(mesimages);
+
+            $('img').draggable();
+
+          });
+
+        });
+
+      });
+
+    </script>
+
+    <title></title>
+  </head>
+  <body>
+    <h1>Images depuis Wikidata</h1>
+    <p>Ce code affiche une centaine d'images disponibles sur Wikidata.</p>
+    <div class="" id="viz"></div>
+
+  </body>
+</html>
